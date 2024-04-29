@@ -1,6 +1,7 @@
 import os
 import random
 import platform
+import sys
 
 def open_random_file(folder_path, script_name):
     # Überprüfen, ob der Ordner existiert
@@ -13,7 +14,7 @@ def open_random_file(folder_path, script_name):
 
     # Filtern von Dateien, um nur nicht-versteckte Dateien zu erhalten
     files = [f for f in files if not f.startswith('.')]
-    
+
     # Überprüfen, ob im Ordner Dateien vorhanden sind
     if len(files) == 0:
         print("Der Ordner enthält keine Dateien.")
@@ -44,7 +45,8 @@ def open_random_file(folder_path, script_name):
         print(f"Fehler beim Öffnen der Datei: {e}")
 
 # Pfad zum Ordner mit den Dateien
-folder_path = r"C:\Users\Matti\Desktop\Test"  # Bitte den Pfad entsprechend anpassen
+script_directory = os.path.dirname(os.path.abspath(__file__))
+folder_path = script_directory
 
 # Name des Skripts
 script_name = os.path.basename(__file__)
